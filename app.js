@@ -16,6 +16,7 @@ window.addEventListener('resize',function(){
 
 
 var x = 200;
+var y = 200;
 var v = 5;
 function init(){
 
@@ -24,14 +25,17 @@ function init(){
     console.log("Hello");
 
     ctx.beginPath();
-    ctx.arc(x,200,60,0,Math.PI * 2);
+    ctx.arc(x,y,60,0,Math.PI * 2);
     ctx.strokeStyle = "crimson";
     ctx.stroke();
 
-    if(x + 60 > innerWidth  ){
-        v = -v;
-    }
-    x += 10;
+    canvas.addEventListener('mousemove',function(e){
+
+        x = e.clientX;
+        y = e.clientY;
+        // console.log(e.clientX, e.clientY);
+
+    })
 }
 init();
 
